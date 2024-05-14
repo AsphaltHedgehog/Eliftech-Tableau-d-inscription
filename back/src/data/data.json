@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Conference on Artificial Intelligence",
+    "description": "A conference focusing on the latest advancements in artificial intelligence.",
+    "eventDate": "2024-06-15T09:00:00Z",
+    "organizer": "AI Society"
+  },
+  {
+    "title": "Web Development Workshop",
+    "description": "A hands-on workshop covering modern web development technologies and practices.",
+    "eventDate": "2024-07-10T13:30:00Z",
+    "organizer": "WebDev Institute"
+  },
+  {
+    "title": "Data Science Summit",
+    "description": "A summit gathering experts to discuss data science trends and applications.",
+    "eventDate": "2024-08-20T10:00:00Z",
+    "organizer": "Data Science Association"
+  },
+  {
+    "title": "Startup Pitch Competition",
+    "description": "An event where startups pitch their ideas to investors.",
+    "eventDate": "2024-09-05T14:45:00Z",
+    "organizer": "Startup Hub"
+  },
+  {
+    "title": "UX/UI Design Conference",
+    "description": "A conference showcasing the latest trends in UX/UI design.",
+    "eventDate": "2024-10-12T11:20:00Z",
+    "organizer": "Design Association"
+  },
+  {
+    "title": "Blockchain Technology Forum",
+    "description": "A forum discussing the applications and impact of blockchain technology.",
+    "eventDate": "2024-11-08T08:00:00Z",
+    "organizer": "Blockchain Society"
+  },
+  {
+    "title": "Digital Marketing Summit",
+    "description": "A summit bringing together digital marketing experts to share insights and strategies.",
+    "eventDate": "2024-12-01T12:00:00Z",
+    "organizer": "Digital Marketing Association"
+  },
+  {
+    "title": "Cybersecurity Conference",
+    "description": "A conference focusing on cybersecurity threats, solutions, and best practices.",
+    "eventDate": "2025-01-18T10:30:00Z",
+    "organizer": "Cybersecurity Institute"
+  },
+  {
+    "title": "Mobile App Development Workshop",
+    "description": "A workshop covering mobile app development frameworks and tools.",
+    "eventDate": "2025-02-20T13:15:00Z",
+    "organizer": "MobileDev Academy"
+  },
+  {
+    "title": "Cloud Computing Summit",
+    "description": "A summit discussing the latest trends and innovations in cloud computing.",
+    "eventDate": "2025-03-10T09:45:00Z",
+    "organizer": "Cloud Computing Society"
+  },
+  {
+    "title": "Tech Startup Conference",
+    "description": "A conference providing insights and resources for aspiring tech entrepreneurs.",
+    "eventDate": "2025-04-05T15:00:00Z",
+    "organizer": "Tech Startup Network"
+  },
+  {
+    "title": "Artificial Reality Expo",
+    "description": "An expo showcasing the latest advancements in artificial reality technology.",
+    "eventDate": "2025-05-22T10:10:00Z",
+    "organizer": "AR Association"
+  },
+  {
+    "title": "Health Tech Symposium",
+    "description": "A symposium exploring the intersection of technology and healthcare.",
+    "eventDate": "2025-06-15T11:30:00Z",
+    "organizer": "Health Tech Forum"
+  },
+  {
+    "title": "Software Engineering Conference",
+    "description": "A conference covering software engineering methodologies and practices.",
+    "eventDate": "2025-07-10T14:20:00Z",
+    "organizer": "Software Engineering Association"
+  },
+  {
+    "title": "Big Data Analytics Summit",
+    "description": "A summit discussing the challenges and opportunities in big data analytics.",
+    "eventDate": "2025-08-20T09:00:00Z",
+    "organizer": "Big Data Society"
+  },
+  {
+    "title": "IoT Innovation Forum",
+    "description": "A forum exploring the latest innovations in the Internet of Things (IoT).",
+    "eventDate": "2025-09-05T13:50:00Z",
+    "organizer": "IoT Consortium"
+  },
+  {
+    "title": "Product Management Workshop",
+    "description": "A workshop covering product management strategies and techniques.",
+    "eventDate": "2025-10-12T12:40:00Z",
+    "organizer": "Product Management Institute"
+  },
+  {
+    "title": "DevOps Summit",
+    "description": "A summit focusing on DevOps practices for efficient software development and deployment.",
+    "eventDate": "2025-11-08T08:30:00Z",
+    "organizer": "DevOps Association"
+  },
+  {
+    "title": "Robotics Expo",
+    "description": "An expo showcasing cutting-edge robotics technologies and applications.",
+    "eventDate": "2025-12-01T11:15:00Z",
+    "organizer": "Robotics Society"
+  },
+  {
+    "title": "E-commerce Conference",
+    "description": "A conference exploring the latest trends and strategies in e-commerce.",
+    "eventDate": "2026-01-18T09:20:00Z",
+    "organizer": "E-commerce Association"
+  },
+  {
+    "title": "Data Visualization Workshop",
+    "description": "A workshop on visualizing data using modern data visualization tools.",
+    "eventDate": "2026-02-20T13:45:00Z",
+    "organizer": "DataViz Academy"
+  },
+  {
+    "title": "Machine Learning Summit",
+    "description": "A summit discussing machine learning algorithms, applications, and challenges.",
+    "eventDate": "2026-03-10T10:15:00Z",
+    "organizer": "ML Society"
+  },
+  {
+    "title": "Frontend Development Conference",
+    "description": "A conference focusing on frontend development technologies and best practices.",
+    "eventDate": "2026-04-05T14:50:00Z",
+    "organizer": "Frontend Dev Association"
+  },
+  {
+    "title": "Cloud Security Workshop",
+    "description": "A workshop covering best practices for securing cloud-based applications.",
+    "eventDate": "2026-05-22T11:05:00Z",
+    "organizer": "Cloud Security Institute"
+  },
+  {
+    "title": "AI Ethics Symposium",
+    "description": "A symposium exploring ethical considerations in artificial intelligence development and deployment.",
+    "eventDate": "2026-06-15T12:25:00Z",
+    "organizer": "Ethics in AI Foundation"
+  },
+  {
+    "title": "Quantum Computing Forum",
+    "description": "A forum discussing the latest advancements in quantum computing research and technology.",
+    "eventDate": "2026-07-10T14:30:00Z",
+    "organizer": "Quantum Computing Society"
+  },
+  {
+    "title": "Virtual Reality Expo",
+    "description": "An expo showcasing innovative virtual reality applications and experiences.",
+    "eventDate": "2026-08-20T09:35:00Z",
+    "organizer": "VR Association"
+  },
+  {
+    "title": "Healthcare Innovation Summit",
+    "description": "A summit exploring innovative technologies transforming the healthcare industry.",
+    "eventDate": "2026-09-05T13:55:00Z",
+    "organizer": "Healthcare Innovation Network"
+  },
+  {
+    "title": "Agile Development Workshop",
+    "description": "A workshop covering agile development methodologies and techniques.",
+    "eventDate": "2026-10-12T12:10:00Z",
+    "organizer": "Agile Development Institute"
+  },
+  {
+    "title": "Cryptocurrency Conference",
+    "description": "A conference focusing on cryptocurrencies, blockchain technology, and decentralized finance.",
+    "eventDate": "2026-11-08T08:45:00Z",
+    "organizer": "Crypto Society"
+  }
+]
