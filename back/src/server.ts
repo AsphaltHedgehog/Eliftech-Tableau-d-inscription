@@ -19,6 +19,11 @@ mongoose
       console.log(`Server running. Use our API on port: ${envsConfig.port}`);
     });
 
+    // Clear events collection
+    // await mongoose.connection.dropCollection("events");
+
+    // Seed Database with Mock Entries
+    // await Event.insertMany(data);
   })
   .catch((error) => {
     console.log(`Error: ${error.message}`);
