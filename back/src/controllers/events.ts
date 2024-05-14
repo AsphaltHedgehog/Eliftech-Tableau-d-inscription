@@ -16,7 +16,7 @@ const getAll = async (req: Request, res: Response): Promise<void> => {
     const startIndex: number = (currentPage - 1) * itemsPerPage;
     const result = await Event.find({}, "-createdAt -updatedAt").skip(startIndex).limit(itemsPerPage);
 
-    res.status(200).json({ result, totalEventsL: totalEventsCount });
+    res.status(200).json({ data: result, totalEvents: totalEventsCount });
   } catch (error: any) {
     throw HttpError(400, "Internal server/database error");
   }
