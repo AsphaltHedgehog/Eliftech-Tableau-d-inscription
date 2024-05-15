@@ -3,16 +3,19 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import validationSchema from "@/helpers/schemas";
+import { useRegisterInMutation } from "@/redux/eventsApi/operations";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface ISubmitValues {
   dateOfBirth: string;
   email: string;
-  fullName: string;
+  name: string;
   heardAbout: string;
 }
 
 const initialValues = {
-  fullName: "",
+  name: "",
   email: "",
   dateOfBirth: "",
   heardAbout: ""
@@ -20,14 +23,32 @@ const initialValues = {
 
 const RegistrationPage = () => {
   const { id } = useParams<{ id: string }>();
-
-  const options = ["social media", "friends", "found myself"];
+  const [register, { isLoading, isSuccess, isError }] = useRegisterInMutation();
+  const options = ["social-media", "friends", "myself"];
 
   const submitHandler = (values: ISubmitValues) => {
-    const dateOfBirth = new Date(values.dateOfBirth);
-    values.dateOfBirth = dateOfBirth.toISOString().split("T")[0]; //
-    console.log("values:", values, "id", id);
+    if (!id) {
+      return;
+    }
+    const data = {
+      ...values,
+      event: id
+    };
+    data.dateOfBirth = new Date(values.dateOfBirth).toISOString().split("T")[0];
+    register(data);
   };
+
+  useEffect(() => {
+    if (isLoading) {
+      toast.info("Completing registration...");
+    }
+    if (isSuccess) {
+      toast.success("Registration on Event completed successfully");
+    }
+    if (isError) {
+      toast.error("Email already registered");
+    }
+  }, [isError, isLoading, isSuccess]);
 
   return (
     <div className="mx-auto max-w-md">
@@ -40,16 +61,11 @@ const RegistrationPage = () => {
         {({ values, setFieldValue }) => (
           <Form>
             <div className="mb-4">
-              <label htmlFor="fullName" className="mb-1 block">
+              <label htmlFor="name" className="mb-1 block">
                 Full Name
               </label>
-              <Field
-                type="text"
-                id="fullName"
-                name="fullName"
-                className="w-full rounded-md border border-gray-300 px-3 py-2"
-              />
-              <ErrorMessage name="fullName" component="div" className="mt-1 text-sm text-red-500" />
+              <Field type="text" id="name" name="name" className="w-full rounded-md border border-gray-300 px-3 py-2" />
+              <ErrorMessage name="name" component="div" className="mt-1 text-sm text-red-500" />
             </div>
             <div className="mb-4">
               <label htmlFor="email" className="mb-1 block">
