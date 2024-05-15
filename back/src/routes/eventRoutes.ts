@@ -5,7 +5,7 @@ const eventRouter = express.Router();
 
 eventRouter.get("/", events.getAll);
 
-eventRouter.get("/registration", events.register);
+eventRouter.post("/registration", events.register);
 
 eventRouter.get("/participants", events.participants);
 

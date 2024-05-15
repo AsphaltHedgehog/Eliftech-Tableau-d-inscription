@@ -24,7 +24,7 @@ const getAll = async (req: Request, res: Response): Promise<void> => {
 };
 
 const register = async (req: Request, res: Response): Promise<void> => {
-  const { event, email, name } = req.body;
+  const { event, email } = req.body;
 
   const eventInfo = await Event.findById(event);
   if (!eventInfo) {
