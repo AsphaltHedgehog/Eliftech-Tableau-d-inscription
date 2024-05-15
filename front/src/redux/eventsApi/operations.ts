@@ -1,13 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IEvents, IGetEventsResponse, IGetParticipantsResponse, IParticipant, ISetParticipantResponse } from "../types";
-
-interface ISetParticipantData {
-  event: string;
-  name: string;
-  email: string;
-  dateOfBirth: string;
-  heardAbout: string;
-}
+import {
+  IEvents,
+  IGetEventsResponse,
+  IGetParticipantsResponse,
+  IParticipant,
+  ISetParticipantData,
+  ISetParticipantResponse
+} from "../types";
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),

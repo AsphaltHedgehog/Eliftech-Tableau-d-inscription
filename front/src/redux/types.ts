@@ -31,3 +31,11 @@ export interface ISetParticipantResponse {
   name: string;
   email: string;
 }
+
+export interface ISetParticipantData {
+  event: string;
+  name: string;
+  email: string;
+  dateOfBirth: string;
+  heardAbout: string;
+}
