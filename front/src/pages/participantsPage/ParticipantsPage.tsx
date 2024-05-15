@@ -1,12 +1,53 @@
 import { useGetParticipantsQuery } from "@/redux/eventsApi/operations";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Chart as ChartJS, CategoryScale, LinearScale, Title, Tooltip, Legend, BarElement } from "chart.js";
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top" as const
+    },
+    title: {
+      display: true,
+      text: "Chart.js Line Chart"
+    }
+  },
+  scales: {
+    y: {
+      ticks: {
+        stepSize: 1
+      }
+    }
+  }
+};
 
 const ParticipantsPage = () => {
   const { id } = useParams<{ id: string }>();
   const [searchQuery, setSearchQuery] = useState("");
 
   const { data: participants, isLoading } = useGetParticipantsQuery(id ? id : "");
+  const [registrationData, setRegistrationData] = useState<{ date: string; count: number }[]>([]);
+
+  useEffect(() => {
+    if (!participants || !participants.participants.length) return;
+
+    const registrationMap = participants.participants.reduce(
+      (acc, participant) => {
+        const date = participant.createdAt.split("T")[0];
+        acc[date] = acc[date] ? acc[date] + 1 : 1;
+        return acc;
+      },
+      {} as { [date: string]: number }
+    );
+
+    const registrationData = Object.entries(registrationMap).map(([date, count]) => ({ date, count }));
+    setRegistrationData(registrationData);
+  }, [participants]);
 
   const filteredParticipants = participants?.participants.filter((participant) => {
     const nameMatch = participant.name.toLowerCase().includes(searchQuery.toLowerCase().trim());
@@ -18,9 +59,28 @@ const ParticipantsPage = () => {
     setSearchQuery(e.target.value);
   };
 
+  const chartData = {
+    labels: registrationData.map(({ date }) => date),
+    datasets: [
+      {
+        label: "Registrations per day",
+        data: registrationData.map(({ count }) => count),
+        fill: false,
+        backgroundColor: "rgba(75,192,192,0.4)",
+        borderColor: "rgba(75,192,192,1)"
+      }
+    ]
+  };
+
   return (
     <main className="container mx-auto px-4">
       <h2 className="mb-4 text-3xl font-semibold">Participants</h2>
+      {registrationData.length > 0 && (
+        <div className="mt-8">
+          <h3 className="mb-4 text-2xl font-semibold">Registrations per Day</h3>
+          <Bar data={chartData} options={options} />
+        </div>
+      )}
       <div className="mb-4">
         <input
           type="text"
