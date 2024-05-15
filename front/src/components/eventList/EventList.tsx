@@ -10,20 +10,22 @@ const EventList = ({ data }: EventListProps) => {
     const { _id, title, description, eventDate, organizer } = event;
 
     return (
-      <li key={_id}>
-        <div>
-          <h3>{title}</h3>
-          <div>
-            <p>{eventDate}</p>
-            <p>{organizer}</p>
-          </div>
+      <div key={_id} className="rounded bg-gray-100 p-4">
+        <h3 className="mb-2 text-xl font-semibold">{title}</h3>
+        <div className="mb-2 flex justify-between">
+          <p>{eventDate}</p>
+          <p>{organizer}</p>
         </div>
-        <p>{description}</p>
-        <div>
-          <NavLink to={`registration/${_id}`}>Register</NavLink>
-          <NavLink to={`participants/${_id}`}>View</NavLink>
+        <p className="mb-2">{description}</p>
+        <div className="flex justify-between">
+          <NavLink to={`registration/${_id}`} className="text-blue-600 hover:underline">
+            Register
+          </NavLink>
+          <NavLink to={`participants/${_id}`} className="text-blue-600 hover:underline">
+            View
+          </NavLink>
         </div>
-      </li>
+      </div>
     );
   });
 

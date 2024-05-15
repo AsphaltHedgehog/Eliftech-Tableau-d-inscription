@@ -5,11 +5,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
-  const { data: events } = useGetEventsQuery({ page });
+  const { data: events, isLoading } = useGetEventsQuery({ page });
 
   return (
-    <>
-      <div>Events</div>
+    <main className="container mx-auto px-4">
+      <h2 className="mb-4 text-3xl font-semibold">Events</h2>
+      {isLoading ? <p>Loading...</p> : <></>}
       {events && events.data.length >= 1 && (
         <InfiniteScroll
           dataLength={events.data.length}
@@ -18,10 +19,12 @@ const HomePage = () => {
           loader={<h4>Loading...</h4>}
           endMessage={<p>Yay! You have seen all available Events.</p>}
         >
-          <EventList data={events.data} />
+          <section className="grid grid-cols-2 gap-4">
+            <EventList data={events.data} />
+          </section>
         </InfiniteScroll>
       )}
-    </>
+    </main>
   );
 };
 
