@@ -1,6 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IEvents, IGetEventsResponse, IGetParticipantsResponse, IParticipant, ISetParticipantResponse } from "../types";
 
+interface ISetParticipantData {
+  event: string;
+  name: string;
+  email: string;
+  dateOfBirth: string;
+  heardAbout: string;
+}
+
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   reducerPath: "main",
@@ -8,7 +16,7 @@ export const api = createApi({
   endpoints: (build) => ({
     // get all events
     getEvents: build.query<IGetEventsResponse<IEvents>, { page?: number; pageSize?: number }>({
-      query: ({ page = 1, pageSize = 6 }) => `api/events/?page=${page}&pageSize=${pageSize}`,
+      query: ({ page = 1, pageSize = 10 }) => `api/events/?page=${page}&pageSize=${pageSize}`,
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
@@ -31,21 +39,12 @@ export const api = createApi({
       },
       keepUnusedDataFor: 120
     }),
-    setParticipant: build.query<
-      ISetParticipantResponse,
-      { id: string; name: string; email: string; dateOfBirth: string; heardAbout: string }
-    >({
-      query: ({ id, name, email, dateOfBirth, heardAbout }) => ({
+    registerIn: build.mutation<ISetParticipantResponse, ISetParticipantData>({
+      query: (params) => ({
         url: `api/events/registration`,
-        body: {
-          event: id,
-          name,
-          email,
-          dateOfBirth,
-          heardAbout
-        }
-      }),
-      keepUnusedDataFor: 1
+        method: "POST",
+        body: params
+      })
     }),
     // get all participants
     getParticipants: build.query<IGetParticipantsResponse<IParticipant>, string>({
@@ -58,4 +57,4 @@ export const api = createApi({
   })
 });
 
-export const { useGetEventsQuery, useGetParticipantsQuery, useSetParticipantQuery } = api;
+export const { useGetEventsQuery, useGetParticipantsQuery, useRegisterInMutation } = api;
