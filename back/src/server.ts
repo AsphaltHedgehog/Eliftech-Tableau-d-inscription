@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import envsConfig from "./conf/envConf";
 import app from "./app";
-import Event from "./models/Event";
 
-import data from "./data/data.json";
+// import Event from "./models/Event";
+// import data from "./data/data.json";
 
 mongoose.set("strictQuery", true);
 if (!envsConfig.dbHost) {
