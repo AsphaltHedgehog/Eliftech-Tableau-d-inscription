@@ -6,10 +6,80 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const HomePage = () => {
   const [page, setPage] = useState(1);
   const { data: events, isLoading } = useGetEventsQuery({ page });
+  const [sortType, setSortType] = useState("");
+
+  const sortEvents = (type: string) => {
+    if (events === undefined || events.data === undefined) {
+      return [];
+    }
+
+    const sortedEvents = [...events.data];
+
+    switch (type) {
+      case "title":
+        sortedEvents.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case "eventDate":
+        sortedEvents.sort((a, b) => new Date(a.eventDate).getTime() - new Date(b.eventDate).getTime());
+        break;
+      case "organizer":
+        sortedEvents.sort((a, b) => a.organizer.localeCompare(b.organizer));
+        break;
+      default:
+        return sortedEvents;
+    }
+
+    return sortedEvents;
+  };
+
+  const handleSortChange = (type: string) => {
+    setSortType(type);
+  };
+
+  const handleClearSort = () => {
+    setSortType("");
+  };
 
   return (
     <main className="container mx-auto px-4">
       <h2 className="mb-4 text-3xl font-semibold">Events</h2>
+      <div className="mb-5 flex h-10 justify-between">
+        <div className=" flex space-x-4 rounded bg-gray-100 p-2">
+          <label className="flex items-center">
+            <input
+              type="radio"
+              value="title"
+              checked={sortType === "title"}
+              onChange={() => handleSortChange("title")}
+              className="mr-2 cursor-pointer"
+            />
+            Sort by Title
+          </label>
+          <label className="flex items-center">
+            <input
+              type="radio"
+              value="eventDate"
+              checked={sortType === "eventDate"}
+              onChange={() => handleSortChange("eventDate")}
+              className="mr-2 cursor-pointer"
+            />
+            Sort by Event Date
+          </label>
+          <label className="flex items-center">
+            <input
+              type="radio"
+              value="organizer"
+              checked={sortType === "organizer"}
+              onChange={() => handleSortChange("organizer")}
+              className="mr-2 cursor-pointer"
+            />
+            Sort by Organizer
+          </label>
+        </div>
+        <button onClick={handleClearSort} className="cursor-pointer rounded bg-blue-400 px-4 py-2 hover:bg-blue-700">
+          Clear Sort
+        </button>
+      </div>
       {isLoading ? <p>Loading...</p> : <></>}
       {events && events.data.length >= 1 && (
         <InfiniteScroll
@@ -20,7 +90,7 @@ const HomePage = () => {
           endMessage={<p className="mb-4 text-3xl font-semibold">Yay! You have seen all available Events.</p>}
         >
           <section className="mb-5 grid grid-cols-2 gap-4">
-            <EventList data={events.data} />
+            <EventList data={sortType === "" ? events.data : sortEvents(sortType)} />
           </section>
         </InfiniteScroll>
       )}
