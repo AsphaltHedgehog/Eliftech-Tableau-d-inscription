@@ -51,7 +51,7 @@ export const api = createApi({
       query: (id: string) => ({
         url: `api/events/participants?id=${id}`
       }),
-      keepUnusedDataFor: 120
+      keepUnusedDataFor: 5
     })
   })
 });
