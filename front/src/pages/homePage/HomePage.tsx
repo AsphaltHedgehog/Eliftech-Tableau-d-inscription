@@ -15,11 +15,11 @@ const HomePage = () => {
         <InfiniteScroll
           dataLength={events.data.length}
           next={() => setPage((prev) => prev + 1)}
-          hasMore={events.totalEvents / 6 > page ? true : false}
-          loader={<h4>Loading...</h4>}
-          endMessage={<p>Yay! You have seen all available Events.</p>}
+          hasMore={events.totalEvents / 10 > page ? true : false}
+          loader={<h4 className="mb-4 text-3xl font-semibold">Loading...</h4>}
+          endMessage={<p className="mb-4 text-3xl font-semibold">Yay! You have seen all available Events.</p>}
         >
-          <section className="grid grid-cols-2 gap-4">
+          <section className="mb-5 grid grid-cols-2 gap-4">
             <EventList data={events.data} />
           </section>
         </InfiniteScroll>
