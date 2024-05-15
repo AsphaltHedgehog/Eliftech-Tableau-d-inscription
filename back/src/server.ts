@@ -20,7 +20,7 @@ mongoose
     });
 
     // Clear events collection
-    // await mongoose.connection.dropCollection("events");
+    // await mongoose.connection.dropDatabase();
 
     // Seed Database with Mock Entries
     // await Event.insertMany(data);
