@@ -55,16 +55,16 @@ const register = async (req: Request, res: Response): Promise<void> => {
 };
 
 const participants = async (req: Request, res: Response): Promise<void> => {
-  const { event } = req.body;
+  const { id } = req.query;
 
-  const eventInfo = await Event.findById(event);
+  const eventInfo = await Event.findById(id);
 
   if (!eventInfo) {
     throw HttpError(404, "Event not found");
   }
 
   try {
-    const participants = await Participant.find({ event });
+    const participants = await Participant.find({ event: id });
 
     res.status(200).json({ participants });
   } catch (error) {

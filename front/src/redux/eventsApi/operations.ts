@@ -49,8 +49,7 @@ export const api = createApi({
     // get all participants
     getParticipants: build.query<IGetParticipantsResponse<IParticipant>, string>({
       query: (id: string) => ({
-        url: `api/events/participants`,
-        body: { event: id }
+        url: `api/events/participants?id=${id}`
       }),
       keepUnusedDataFor: 120
     })
