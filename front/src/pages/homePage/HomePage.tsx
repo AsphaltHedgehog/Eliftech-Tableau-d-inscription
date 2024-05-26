@@ -43,7 +43,7 @@ const HomePage = () => {
   return (
     <main className="container mx-auto px-4">
       <h2 className="mb-4 text-3xl font-semibold">Events</h2>
-      <div className="mb-5 flex h-10 justify-between">
+      <form className="mb-5 flex h-10 justify-between">
         <div className=" flex space-x-4 rounded bg-gray-100 p-2">
           <label className="flex items-center">
             <input
@@ -76,7 +76,10 @@ const HomePage = () => {
             Sort by Organizer
           </label>
         </div>
-        <button onClick={handleClearSort} className="cursor-pointer rounded bg-blue-400 px-4 py-2 hover:bg-blue-700">
+        <button 
+          // onClick={handleClearSort} 
+          className="cursor-pointer rounded bg-blue-400 px-4 py-2 hover:bg-blue-700" type="reset"
+        >
           Clear Sort
         </button>
       </div>
