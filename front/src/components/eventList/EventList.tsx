@@ -10,7 +10,7 @@ const EventList = ({ data }: EventListProps) => {
     const { _id, title, description, eventDate, organizer } = event;
 
     return (
-      <div key={_id} className="rounded bg-gray-100 p-4">
+      <li key={_id} className="rounded bg-gray-100 p-4">
         <h3 className="mb-2 text-xl font-semibold">{title}</h3>
         <div className="mb-2 flex justify-between">
           <p>{eventDate}</p>
@@ -25,7 +25,7 @@ const EventList = ({ data }: EventListProps) => {
             View
           </NavLink>
         </div>
-      </div>
+      </li>
     );
   });
 
