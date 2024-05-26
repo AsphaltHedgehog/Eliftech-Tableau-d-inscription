@@ -89,9 +89,11 @@ const HomePage = () => {
           loader={<h4 className="mb-4 text-3xl font-semibold">Loading...</h4>}
           endMessage={<p className="mb-4 text-3xl font-semibold">Yay! You have seen all available Events.</p>}
         >
-          <section className="mb-5 grid grid-cols-2 gap-4">
-            <EventList data={sortType === "" ? events.data : sortEvents(sortType)} />
-          </section>
+         <section className="md-5">
+            <ul className="grid grid-cols-2 gap-4">
+              <EventList data={sortType === "" ? events.data : sortEvents(sortType)} />
+            </ul>
+         </section>
         </InfiniteScroll>
       )}
     </main>
