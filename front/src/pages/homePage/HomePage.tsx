@@ -82,7 +82,7 @@ const HomePage = () => {
         >
           Clear Sort
         </button>
-      </div>
+      </form>
       {isLoading ? <p>Loading...</p> : <></>}
       {events && events.data.length >= 1 && (
         <InfiniteScroll
