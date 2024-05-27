@@ -32,9 +32,9 @@ const HomePage = () => {
     return sortedEvents;
   };
 
-  const handleSortChange = (type: string) => {
-    setSortType(type);
-  };
+//  const handleSortChange = (type: string) => {
+//    setSortType(type);
+//  };
 
 //  const handleClearSort = () => {
 //    setSortType("");
