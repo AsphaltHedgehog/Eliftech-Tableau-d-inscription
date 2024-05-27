@@ -32,13 +32,13 @@ const HomePage = () => {
     return sortedEvents;
   };
 
-//  const handleSortChange = (type: string) => {
-//    setSortType(type);
-//  };
+const handleSortChange = (type: string) => {
+   setSortType(type);
+};
 
-//  const handleClearSort = () => {
-//    setSortType("");
-//  }; 
+  const handleClearSort = () => {
+    setSortType("");
+ }; 
 
   return (
     <main className="container mx-auto px-4">
@@ -77,7 +77,7 @@ const HomePage = () => {
           </label>
         </div>
         <button 
-          // onClick={handleClearSort} 
+          onClick={handleClearSort} 
           className="cursor-pointer rounded bg-blue-400 px-4 py-2 hover:bg-blue-700" type="reset"
         >
           Clear Sort
