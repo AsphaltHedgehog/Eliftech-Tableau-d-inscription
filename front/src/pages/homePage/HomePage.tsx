@@ -36,9 +36,9 @@ const HomePage = () => {
     setSortType(type);
   };
 
-  const handleClearSort = () => {
-    setSortType("");
-  };
+//  const handleClearSort = () => {
+//    setSortType("");
+//  }; 
 
   return (
     <main className="container mx-auto px-4">
